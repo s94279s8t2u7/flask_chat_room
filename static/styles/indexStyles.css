@@ -1,0 +1,654 @@
+/* ------------------ */
+/* 角色x資訊欄與對話
+/* ------------------ */
+body{
+	overflow: hidden;
+}
+.bottom_cbox {
+	padding: 5px;
+	background-color: #DDDDDD;
+	border-radius: 10px;
+	height: 16vh;
+	width: 61%;
+	position: absolute;
+	left: 15PX;
+	bottom: 10px;
+}
+
+.bottom_scroll {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.character_box_set {
+	height: 100%;
+	width: 1700px;
+}
+
+.character_box {
+	float: left;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin: 4px;
+	width: 13vh;
+	height: 13vh;
+}
+
+.character_box_plus {
+	float: left;
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin: 4px;
+	width: 13vh;
+	height: 13vh;
+}
+
+.all_character_name {
+	color: #FFF;
+	position: absolute;
+	bottom: -10px;
+	left: 2px;
+}
+
+.character_box:hover {
+	background-color: #BC8F8F;
+}
+
+.main_character {
+	background-color: #DAA520;
+}
+
+.character_box_dis {
+	float: left;
+	border-radius: 3px;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin: 4px 8px 4px 8px;
+	width: 5px;
+	height: 13vh;
+}
+
+.character_box_inside {
+	position: relative;
+	background-color: #888888;
+	pointer-events: none; /* 不會被按到 */
+	border-radius: 2px;
+	margin: 1vh;
+	width: 11vh;
+	height: 11vh;
+}
+
+
+/* ------------------ */
+/* 新增角色視窗
+/* ------------------ */
+
+.character_box_inside > img {
+	width: 100%;
+	height: 100%;
+}
+
+/* ----------------------------------------/
+
+#popWindow {
+	width: 666px;
+	height: 488px;
+	box-shadow: 5px 5px 10px #666666;
+	border-radius: 20px;
+	position: fixed;
+	background-color: #DDDDDD;
+}
+
+----------------------------------------- */
+
+#popwindow_character_change {
+	width: 400px;
+	height: 0px;
+	-webkit-transition: .5s all;
+	border-radius: 5px;
+	position: fixed; 
+	bottom: 19vh;
+	left: 30vh;
+	background-color: #DDDDDD;
+	overflow: hidden;
+}
+
+.popwindow_character_text_color{
+	color: 	#C63300;
+}
+
+.popwindow_character_text {
+	margin: 15px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #666666;
+}
+
+#character_change_cancel {
+	float: left;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #FFFFFF;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin-top: 25px;
+	margin-left: 23px;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 170px;
+	height: 50px;
+}
+
+#character_change_yes {
+	float: left;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #FFFFFF;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin-top: 25px;
+	margin-left: 15px;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 170px;
+	height: 50px;
+}
+
+.character_box_appearance_dis {
+	float: left;
+	background-color: #AAAAAA;
+	border-radius: 3px;
+	margin-top: 17vh;
+	margin-left: 30px;
+	width: 5px;
+	height: 268.4px;
+}
+
+.character_box_appearance {
+	float: left;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 40px;
+	color: #FFFFFF;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	margin-top: 17vh;
+	margin-left: 30px;
+	padding-top: 15vh;
+	padding-left: 10px;
+	width: 270px;
+	height: 270px;
+}
+
+.fuck_off {
+	position: absolute;
+	color: #D87093;
+	right: 10px;
+}
+
+
+/* ------------------ */
+/* 角色資訊欄與*對話
+/* ------------------ */
+.character_info {
+	background-color: #DDDDDD;
+	-webkit-transition: .4s all;
+	border-radius: 10px;
+	height: 0px;
+	width: 61%;
+	position: absolute;
+	left: 15PX;
+	bottom: 10px;
+	overflow: hidden;
+}
+
+.character_info_box {
+	background-color: #FFFFFF;
+	-webkit-transition: .4s all;
+	border-radius: 10px;
+	height: 20vh;
+	width: 69.5%;
+	position: absolute;
+	left: 29%;
+	top: 10px;
+}
+
+.character_info_pic {
+	background-color: #AAAAAA;
+	overflow: hidden;
+	-webkit-transition: .4s all;
+	border-radius: 5px;
+	height: 0px;
+	width: 17%;
+	position: absolute;
+	left: 15PX;
+	bottom: 10px;
+	overflow: hidden;
+}
+
+#character_info_name {
+	background-color: #888888;
+	overflow: hidden;
+	-webkit-transition: .4s all;
+	height: 0px;
+	width: 20%;
+	position: absolute;
+	left: 15PX;
+	bottom: 10px;
+	overflow: hidden;
+	opacity: 0.9;
+	line-height:4vh;
+	border-radius: 5px 50px 10px 5px;
+	-webkit-transition: .5s all;
+}
+
+.character_info_name_font {
+	margin: 10px;
+	color: white;
+	font-size: 30px;
+}
+
+
+/* ------------------ */
+/* 設定鈕
+/* ------------------ */
+.sitting_box {
+	position: absolute;
+	right: 24%;
+	cursor: pointer;
+	-webkit-transition: .5s all;
+	background-color: #DDDDDD;
+	border-radius: 1vh;
+	width: 5vh;
+	height: 5vh;
+	margin: 6px;
+}
+.sitting_box:hover {
+	background-color: #AAAAAA;
+}
+
+
+/* ------------------ */
+/* 骰子
+/* ------------------ */
+.dice_box {
+	position: absolute;
+	right: 24%;
+	bottom: 2%;
+	background-color: #DDDDDD;
+	border-radius: 2vh;
+	width: 17vh;
+	height: 17vh;
+	margin: 5px;
+}
+
+.dice_box_inside {
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	border-radius: 1vh;
+	cursor:pointer;
+	width: 90%;
+	height: 90%;
+	margin: 5%;
+}
+
+.dice_box_inside:hover {
+	background-color: #888888;
+}
+
+.dice_window {
+	position: absolute;
+	background-color: #AAAAAA;
+	-webkit-transition: .5s all;
+	border-radius: 1vh;
+	height: 0px;
+	width: 0px;
+	right: 24%;
+	bottom: 18vh;
+	overflow: hidden;
+}
+
+.dice_window_chose {
+	position: absolute;
+	background-color: #DDDDDD;
+	border-radius: 1vh;
+	height: 30vh;
+	width: 46vh;
+	margin: 2vh;
+	overflow: auto;
+}
+
+.dice_window_chose_dice {
+	float: left;
+	background-color: #DDDDDD;
+	-webkit-transition: .3s all;
+	cursor:pointer;  
+	border-radius: 2px;
+	margin: 1vh;
+	padding: 1.5vh;
+	width: 13vh;
+	height: 13vh;
+}
+
+.dice_window_chose_dice:hover {
+	background-color: #888888;
+}
+
+.dice_window_chose_dice_pic {
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	pointer-events: none;
+	width: 10vh;
+	height: 10vh;
+}
+
+.dice_amount {
+	position: absolute;
+	top: 40vh;
+	left: 10vh;
+	width: 5vh;
+}
+
+.dice_go {
+	background-color: #888888;
+	-webkit-transition: .3s all;
+	cursor:pointer; 
+	border-radius: 3px;
+	position: absolute;
+	top: 37vh;
+	left: 30vh;
+	height: 10vh;
+	width: 15vh;
+}
+
+.dice_go:hover {
+	background-color: #8FBC8F;
+}
+
+
+/* ------------------ */
+/* 聊天室
+/* ------------------ */
+.major_glass {
+	position: absolute;
+	top: 2%;
+	left: 0%;
+	width: 18vh;
+	height: 4vh;
+	text-align: center;
+	opacity: 0.7;
+	line-height:4vh;
+	border-radius: 5px 70px 70px 5px;
+	-webkit-transition: .5s all;
+	background-color: #444444;
+	color: white;
+	font-size: 0.5cm;
+	overflow: hidden;
+}
+
+.talk {
+	position: absolute;
+	top: 60%;
+	left: 0%;
+	width: 18vh;
+	height: 4vh;
+	text-align: center;
+	opacity: 0.7;
+	line-height:4vh;
+	border-radius: 5px 70px 70px 5px;
+	-webkit-transition: .5s all;
+	background-color: #444444;
+	color: white;
+	font-size: 0.5cm;
+	overflow: hidden;
+}
+
+.chat_id {
+	position: absolute;
+	left: 0%;
+	width: 0vh;
+	height: 4vh;
+	text-align: center;
+	opacity: 0.5;
+	line-height: 4vh;
+	border-radius: 2px 20px 20px 2px;
+	-webkit-transition: .5s all;
+	background-color: #444444;
+	color: white;
+	font-size: 0.5cm;
+	overflow: hidden;
+}
+
+.chat_id_up {
+	top: 54%;
+}
+
+.chat_id_down {
+	top: 94%;
+}
+
+.text_box {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	background-color: #DDDDDD;
+	border-radius: 10px;
+	width: 23%;
+	height: 96vh;
+	margin: 5px;
+}
+
+.text_box_main {
+	width: 100%;
+	height: 58vh;
+	border-bottom:1px solid #AAAAAA;
+}
+
+.text_box_chat {
+	width: 100%;
+	height: 37vh;
+}
+
+.text_box_text_main {
+	padding-top: 6vh;
+	padding-left: 5%;
+	height: 70%;
+	margin-bottom: 3px; 
+}
+
+.text_box_text_chat {
+	padding-top: 4vh;
+	padding-left: 5%;
+	height: 63%;
+	margin-bottom: 3px; 
+}
+
+.text_input_main_box {
+	background-color: #FFFFFF;
+	margin-left: 5%;
+	bottom: 1%;
+	width: 90%;
+	height: 9.75vh;
+	border-radius: 5px;
+	padding: 2px;
+	resize:none;
+	border: none;
+}
+
+.text_input_chat_box {
+	background-color: #FFFFFF;
+	margin-left: 5%;
+	width: 90%;
+	height: 8.5vh;
+	border-radius: 5px;
+	padding: 2px;
+	resize: none;
+	border: none;
+}
+
+.scroll {
+	word-wrap: break-word;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.text_0 {
+	display: inline;
+}
+
+.text:hover {
+	-webkit-transition: .3s all;
+	color: 	#191970;
+}
+
+.little_li {
+	width: 100%;
+	margin: 2px;
+	padding: 2px;
+	user-select: none;
+}
+
+.client_text {
+	color: #00AAAA;
+	-webkit-transition: .5s all;
+}
+
+.text {
+	user-select: none;
+	color: #666666;
+	-webkit-user-select: none;
+}
+
+li {
+	list-style: none;
+}
+a:hover {
+	text-decoration: none;
+}
+
+
+/* ------------------ */
+/* 圖示
+/* ------------------ */
+.menu.icon {
+	color: #AAAAAA;
+	-webkit-transition: .5s all;
+	position: absolute;
+	right: 4px;
+	margin-top: 2.15vh;
+	width: 4vh;
+	height: 4px;
+	background-color: currentColor;
+}
+
+.menu.icon:before {
+	content: '';
+	position: absolute;
+	top: -1.15vh;
+	left: 0;
+	width: 4vh;
+	height: 4px;
+	background-color: currentColor;
+}
+
+.menu.icon:after {
+	content: '';
+	position: absolute;
+	top: 1.15vh;
+	left: 0;
+	width: 4vh;
+	height: 4px;
+	background-color: currentColor;
+}
+
+.menu.icon:hover {
+	color: #DDDDDD;
+}
+
+.remove.icon {
+	color: #888888;
+	position: absolute;
+	margin-left: 97%;
+	margin-top: 10px;
+}
+
+.remove.icon:before {
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 1px;
+	background-color: currentColor;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.remove.icon:after {
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 1px;
+	background-color: currentColor;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.circle {
+	color: #CD5C5C;
+	position: absolute;
+	margin-left: 26px;
+	margin-top: 26px;
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: solid 1px currentColor;
+	background-color: currentColor;
+}
+
+.plus_icon {
+	color: black;
+	position: absolute;
+	margin-left: 3px;
+	margin-top: 10px;
+}
+
+.plus_icon:before {
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 1px;
+	background-color: currentColor;
+}
+
+.plus_icon:after {
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 1px;
+	background-color: currentColor;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+/*模糊＆毛玻璃特效*/
+/*
+	.text_blur {
+		text-shadow: 0 0px 5px rgba(0,0,0,1);
+		color: transparent;
+	}
+*/
+
+/*使圖片自動對應寬度大小*/
+/*
+	#div img { 
+		max-width:600px; 
+		myimg:expression(onload=function(){ 
+		this.style.width=(this.offsetWidth > 600)?"600px":"auto"});
+	}
+*/
